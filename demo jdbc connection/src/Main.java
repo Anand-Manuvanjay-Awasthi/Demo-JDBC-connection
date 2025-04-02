@@ -5,10 +5,10 @@ import java.sql.Statement;
 
 public class SQLServerConnection {
     public static void main(String[] args) {
-        String connectionUrl = "jdbc:sqlserver://localhost:1433;"
-                + "databaseName=MyDatabase;"
-                + "user=myUsername;"
-                + "password=myPassword;";
+        String connectionUrl = "jdbc:sqlserver://localhost:3306;"
+                + "databaseName=learning_db;"
+                + "user=root@localhost;"
+                + "password=J1a2y3a4;";
 
         try {
             // Load the SQL Server JDBC driver
@@ -18,7 +18,7 @@ public class SQLServerConnection {
             Connection con = DriverManager.getConnection(connectionUrl);
 
             // Create and execute a basic SQL query
-            String SQL = "SELECT * FROM Customers";
+            String SQL = "SELECT * FROM employee";
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SQL);
 
@@ -34,5 +34,6 @@ public class SQLServerConnection {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Usually throws SQL exception and I/O exception so u can use throw keyword as well instead of try catch//
     }
 }
